@@ -6,9 +6,13 @@ public class Word {
 	// Char array of the word to speed up some computations
 	private char[] chars;
 	
+	// value of m in [C](VC){m}[V] format
+	private int m;
+	
 	public Word(String raw) {
 		this.raw = raw;
 		this.chars = raw.toCharArray();
+		this.m = this.calculateMValue();
 	}
 	
 	public String breakupWord() {
@@ -16,13 +20,13 @@ public class Word {
 		String startC = "";
 		
 		int i = 0;
-		while (isConsonant(chars[i])) {
+		while (i < chars.length && isConsonant(chars[i])) {
 			startC += chars[i++];
 		}
 		
 		String middleM = "";
 		String lastV = "";
-		while (i < raw.length()) {
+		while (i < chars.length) {
 			String partV = "";
 			while (i < chars.length && isVowel(chars[i])) {
 				partV += chars[i++];
@@ -38,8 +42,32 @@ public class Word {
 			middleM += "{" + partV + partC + "}";
 		}
 		
-		
 		return "["+startC+"]"+middleM+"["+lastV+"]";
+	}
+	
+	// Calculate the M value of the word.
+	private int calculateMValue() {
+		int i = 0;
+		int m = 0;
+		while (i < chars.length && isConsonant(chars[i])) i++;
+		
+		while (i < chars.length) {
+			
+			while (i < chars.length && isVowel(chars[i])) i++;
+			int c = 0;
+			while (i < chars.length && isConsonant(chars[i])) {
+				i++;
+				c++;
+			}
+			m++;
+			
+			if (c == 0) m--;
+		}
+		return m;
+	}
+	
+	public int getM() {
+		return m;
 	}
 	
 	public static boolean isVowel(char c) {

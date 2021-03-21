@@ -7,7 +7,7 @@ public class LatinStemmer {
 		ArrayList<Word> words = FileHandler.generateWordList(args[0]);
 		
 		for (Word w : words) {
-			System.out.println(w.breakupWord());
+			System.out.println(w.breakupWord() + " " + w.getM());
 		}
 	}
 }
