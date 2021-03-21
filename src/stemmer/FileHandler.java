@@ -53,7 +53,7 @@ public class FileHandler {
 	}
 	
 	private static boolean isLatinLetter(char c) {
-		int cp = (int)c;
+		int cp = (int)c; // ascii code point of c
 		// return if c is a-z but not w
 		return (cp >= 97 && cp <= 122) && cp != 119;
 	}
