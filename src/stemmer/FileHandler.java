@@ -14,8 +14,8 @@ public class FileHandler {
 	 * 
 	 * A word is some string in the file, separated by whitespace, which contains only valid Latin letters
 	 */
-	public static ArrayList<String> generateWordList(String pathToFile) {
-		ArrayList<String> wordList = new ArrayList<String>();
+	public static ArrayList<Word> generateWordList(String pathToFile) {
+		ArrayList<Word> wordList = new ArrayList<Word>();
 		
 		File file = new File(pathToFile);
 		
@@ -45,7 +45,7 @@ public class FileHandler {
 					}
 				}
 				
-				if (valid) wordList.add(word);
+				if (valid) wordList.add(new Word(word));
 			}
 		}
 		
