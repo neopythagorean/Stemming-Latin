@@ -9,6 +9,8 @@ public class Rule {
 	// Right side of rule
 	String production;
 	
+	RuleBin transition;
+	
 	public Rule(String raw) {
 		this.rawRule = raw;
 		String[] split = raw.split(" -> ");
