@@ -6,11 +6,15 @@ public class Word {
 	// Char array of the word to speed up some computations
 	private char[] chars;
 	
+	// length of word, in letters
+	private int length;
+	
 	// value of m in [C](VC){m}[V] format
 	private int m;
 	
 	public Word(String raw) {
 		this.raw = raw;
+		this.length = raw.length();
 		this.chars = raw.toCharArray();
 		this.m = this.calculateMValue();
 	}
@@ -20,19 +24,19 @@ public class Word {
 		String startC = "";
 		
 		int i = 0;
-		while (i < chars.length && isConsonant(chars[i])) {
+		while (i < length && isConsonant(chars[i])) {
 			startC += chars[i++];
 		}
 		
 		String middleM = "";
 		String lastV = "";
-		while (i < chars.length) {
+		while (i < length) {
 			String partV = "";
-			while (i < chars.length && isVowel(chars[i])) {
+			while (i < length && isVowel(chars[i])) {
 				partV += chars[i++];
 			}
 			String partC = "";
-			while (i < chars.length && isConsonant(chars[i])) {
+			while (i < length && isConsonant(chars[i])) {
 				partC += chars[i++];
 			}
 			if (partC.length() == 0) {
@@ -49,19 +53,17 @@ public class Word {
 	private int calculateMValue() {
 		int i = 0;
 		int m = 0;
-		while (i < chars.length && isConsonant(chars[i])) i++;
+		while (i < length && isConsonant(chars[i])) i++;
 		
-		while (i < chars.length) {
+		while (i < length) {
 			
-			while (i < chars.length && isVowel(chars[i])) i++;
+			while (i < length && isVowel(chars[i])) i++;
 			int c = 0;
-			while (i < chars.length && isConsonant(chars[i])) {
+			while (i < length && isConsonant(chars[i])) {
 				i++;
 				c++;
 			}
-			m++;
-			
-			if (c == 0) m--;
+			if (c != 0) m++;
 		}
 		return m;
 	}
@@ -69,6 +71,13 @@ public class Word {
 	public int getM() {
 		return m;
 	}
+	
+	// *d in specifications
+	public boolean doubleConsonantEnding() {
+		if (length < 2) return false;
+		return isConsonant(chars[length-1]) && isConsonant(chars[length-2]);
+	}
+	
 	
 	public static boolean isVowel(char c) {
 		return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');

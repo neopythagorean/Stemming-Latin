@@ -30,7 +30,7 @@ public class FileHandler {
 		
 		while (reader.hasNextLine()) {
 			String line = reader.nextLine();
-			String[] words = line.split("[ \t,.;]");
+			String[] words = line.split("[ \t!?,.;]");
 			for (String word : words) {
 				// we don't care about preserving case.
 				word = word.toLowerCase();

@@ -9,4 +9,11 @@ public class Rule {
 	// Right side of rule
 	String production;
 	
+	public Rule(String raw) {
+		this.rawRule = raw;
+		String[] split = raw.split(" -> ");
+		this.context = split[0];
+		this.production = split[1];
+	}
+	
 }
