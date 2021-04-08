@@ -1,0 +1,40 @@
+# Example Stemming File
+# This is a comment
+
+
+# HIGH LEVEL PREFIXES
+# These are prefixes will always be at the end of a word
+# and can be used on any type of word
+HL_PREFIXES (VERB_ADJECTIVAL) {
+
+(m>0) QUE -> λ
+
+}
+
+# -bilis (english -able)
+VERB_ADJECTIVAL (VERB_1ST_CONJ) {
+
+# TODO: These will need to check for changing the stem
+(& (m>0) (| (*A) (*I))) BILIS -> B (VERB_ADJECTIVAL_FINAL)
+(& (m>0) (| (*A) (*I))) BILEM -> B (VERB_ADJECTIVAL_FINAL)
+(& (m>0) (| (*A) (*I))) BILI -> B (VERB_ADJECTIVAL_FINAL)
+}
+
+# Leads to the stem outside of irregualr cases
+VERB_ADJECTIVAL_FINAL {
+AB -> λ
+IB -> λ
+}
+
+# First Conjugation verbs
+VERB_1ST_CONJ {
+O -> λ
+AS -> λ
+AT -> λ
+AMUS -> λ
+ATIS -> λ
+ANT -> λ
+}
+
+
+
