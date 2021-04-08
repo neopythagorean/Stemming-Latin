@@ -7,17 +7,18 @@ import java.util.Scanner;
 
 public class RuleGenerator {
 
-	public static ArrayList<Rule> generateRulesList(String stemFile) {
-		ArrayList<Rule> rules = new ArrayList<Rule>();
-
-		File dir = new File(stemFile);
+	
+	public static ArrayList<String> generateCleanedSource(String sourceDir) {
+		ArrayList<String> cleanedSource = new ArrayList<String>();
+		
+		File dir = new File(sourceDir);
 
 		String[] stemFilesToConcatenate = dir.list();
-
+		
 		Scanner rover = null;
-
+		
 		for (int i = 0; i < stemFilesToConcatenate.length; i++) {
-			File file = new File(stemFile + '/' + stemFilesToConcatenate[i]);
+			File file = new File(sourceDir + '/' + stemFilesToConcatenate[i]);
 			try {
 				rover = new Scanner(file);
 			} catch (FileNotFoundException e) {
@@ -42,33 +43,47 @@ public class RuleGenerator {
 					line = line.replaceAll("\t", " ");
 					line = line.replaceAll(" +", " ");
 
-					parsedStem.add(line.trim());
+					cleanedSource.add(line.trim());
 				}
-
-//			String[] ruleToParse = line.split("[ ]");
-//			for (String rule : ruleToParse) {
-//					
-//				if (rule.length() == 0) 
-//					continue;
-//				
-//				boolean valid = true;
-
-//				for(int i=0; i <ruleToParse.length; i++) {
-//					if(ruleToParse[i].contains("{")) {
-//						valid = false;
-//						break;
-//					}
-//				}
-
-//				if (valid) rules.add(new Rule(rule));
-//				else break;
-//			}
+				
 			}
 
 			for (String s : parsedStem) {
 				System.out.println(s);
 			}
 		}
-		return null;
+		
+		return cleanedSource;
 	}
+	
+	public static ArrayList<Rule> generateRulesList(String sourceDir) {
+		ArrayList<String> source = generateCleanedSource(sourceDir);
+		ArrayList<Rule> rules = new ArrayList<Rule>();
+
+		// Some logic here
+		
+//		String[] ruleToParse = line.split("[ ]");
+//		for (String rule : ruleToParse) {
+//				
+//			if (rule.length() == 0) 
+//				continue;
+//			
+//			boolean valid = true;
+
+//			for(int i=0; i <ruleToParse.length; i++) {
+//				if(ruleToParse[i].contains("{")) {
+//					valid = false;
+//					break;
+//				}
+//			}
+
+//			if (valid) rules.add(new Rule(rule));
+//			else break;
+//		}
+
+		
+		return rules;
+	}
+
+	
 }

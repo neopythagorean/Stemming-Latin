@@ -8,6 +8,7 @@ public class LatinStemmer {
 		
 		ArrayList<Rule> rules = RuleGenerator.generateRulesList(args[1]);
 		
+		
 //		for (Word w : words) {
 //			System.out.println(w.breakupWord() + " " + w.getM());
 //		}
