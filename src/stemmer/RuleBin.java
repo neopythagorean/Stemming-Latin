@@ -8,10 +8,15 @@ public class RuleBin {
 	
 	String identifier;
 	ArrayList<Rule> rules;
+	RuleBin defaultTransition;
 	
 	public RuleBin(String identifier) {
 		this.identifier = identifier;
 		this.rules = new ArrayList<Rule>();
+	}
+	
+	public String toString() {
+		return "RB: " + identifier + " (" + ((defaultTransition == null)?"":defaultTransition.identifier) + ")";
 	}
 	
 	public static RuleBin getRuleBinByIdentifier(String identifier) {
@@ -22,5 +27,4 @@ public class RuleBin {
 		}
 		return null;
 	}
-	
 }
