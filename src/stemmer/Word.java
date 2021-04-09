@@ -78,6 +78,9 @@ public class Word {
 		return isConsonant(chars[length-1]) && isConsonant(chars[length-2]);
 	}
 	
+	public boolean endsIn(String ending) {
+		return raw.endsWith(ending.toLowerCase());
+	}
 	
 	public static boolean isVowel(char c) {
 		return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
