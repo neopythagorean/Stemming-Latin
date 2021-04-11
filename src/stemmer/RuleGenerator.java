@@ -91,13 +91,18 @@ public class RuleGenerator {
 				Matcher m = RULEBIN_PATTERN.matcher(line);
 				m.matches();
 				currentBin = ruleBins.get(m.group(1));
+				// Check if there's a pointer to a bin in parenthesis
 				if (m.group(2) != null) {
 					String transition = m.group(2).substring(1, m.group(2).length()-2);
 					currentBin.defaultTransition = ruleBins.get(transition);
 				}
+			} else if (line.contains("->")) {
+				Rule r = new Rule(line, ruleBins, currentBin);
+				currentBin.rules.add(r);
+			} else {
+				System.out.println("Bad Source Line");
 			}
 		}
-		
 	}
 
 	public static ArrayList<Rule> generateRulesList(String sourceDir) {
@@ -106,8 +111,14 @@ public class RuleGenerator {
 
 		HashMap<String, RuleBin> bins = gernerateRuleBin(source);
 		
+		
 		generateRules(source, bins);
-		bins.forEach((k,v)->{System.out.println(v);});
+		for (RuleBin b : bins.values()) {
+			System.out.println(b + "\n" + b.rules.size());
+			for (Rule r : b.rules) {
+				System.out.println(r);
+			}
+		}
 		
 		return rules;
 	}
