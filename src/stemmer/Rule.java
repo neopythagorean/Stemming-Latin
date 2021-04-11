@@ -1,5 +1,7 @@
 package stemmer;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 import stemmer.expressions.Expression;
@@ -21,7 +23,7 @@ public class Rule {
 	
 	public Rule(String raw, HashMap<String, RuleBin> bins, RuleBin currentBin) {
 		this.rawRule = raw;
-		
+		System.out.println(raw);
 		String[] split = raw.split(" -> ");
 		
 		this.context = split[0];
@@ -37,6 +39,26 @@ public class Rule {
 				if (stk == 0) break;
 			}
 			this.end = context.substring(i).strip();
+			
+			// Generate the Condition
+			String condition = context.substring(0, i);
+			System.out.println(condition);
+			Class<? extends Expression> ec = Expression.getExpressionTyoe(condition);
+			System.out.println(ec.toString());
+			Constructor constr = null;
+			try {
+				constr = ec.getConstructor(String.class);
+			} catch (NoSuchMethodException | SecurityException e) {
+				e.printStackTrace();
+			}
+			try {
+				this.condition = (Expression) constr.newInstance(condition);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException e) {
+				e.printStackTrace();
+			}
+			
+			
 		} else {
 			this.end = context;
 		}
