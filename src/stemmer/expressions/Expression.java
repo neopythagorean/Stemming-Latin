@@ -20,12 +20,13 @@ public abstract class Expression {
 		} else if (s.charAt(0) == '!') {
 			return NotExpression.class;
 		} else if (s.charAt(0) == 'm') {
-			return NotExpression.class;
+			return MCountExpression.class;
 		} else if (split[0].equals("*d*")) {
 			return DoubleConsonantExpression.class;
 		} else if (split[0].matches("\\*[A-Z]+")) {
 			return EndsInExpression.class;
 		}
+		System.out.println("Unknow expression in " + source);
 		return Expression.class;
 	}
 	
