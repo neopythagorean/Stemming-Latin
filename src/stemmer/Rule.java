@@ -43,22 +43,14 @@ public class Rule {
 			// Generate the Condition
 			String condition = context.substring(0, i);
 			System.out.println(condition);
-			Class<? extends Expression> ec = Expression.getExpressionTyoe(condition);
-			System.out.println(ec.toString());
-			Constructor constr = null;
-			try {
-				constr = ec.getConstructor(String.class);
-			} catch (NoSuchMethodException | SecurityException e) {
-				e.printStackTrace();
-			}
+			
+			Constructor<? extends Expression> constr = Expression.getConstructor(Expression.getExpressionTyoe(condition));
 			try {
 				this.condition = (Expression) constr.newInstance(condition);
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 					| InvocationTargetException e) {
 				e.printStackTrace();
 			}
-			
-			
 		} else {
 			this.end = context;
 		}

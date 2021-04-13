@@ -1,5 +1,7 @@
 package stemmer.expressions;
 
+import java.lang.reflect.Constructor;
+
 import stemmer.Word;
 
 public abstract class Expression {
@@ -28,6 +30,16 @@ public abstract class Expression {
 		}
 		System.out.println("Unknow expression in " + source);
 		return Expression.class;
+	}
+	
+	public static Constructor<? extends Expression> getConstructor(Class<? extends Expression> c) {
+		Constructor<? extends Expression> constr = null;
+		try {
+			constr = c.getConstructor(String.class);
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+		return constr;
 	}
 	
 	public abstract boolean evaluate(Word w);

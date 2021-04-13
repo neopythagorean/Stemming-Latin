@@ -1,5 +1,7 @@
 package stemmer.expressions;
 
+import java.lang.reflect.InvocationTargetException;
+
 import stemmer.Word;
 
 public class NotExpression extends Expression {
@@ -8,6 +10,14 @@ public class NotExpression extends Expression {
 	
 	public NotExpression(String source) {
 		super(source);
+		String s = source.substring(3, source.length()-1);
+		try {
+			enclosed = Expression.getConstructor(Expression.getExpressionTyoe(s)).newInstance(s);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public boolean evaluate(Word w) {
