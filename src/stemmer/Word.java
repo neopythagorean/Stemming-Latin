@@ -19,6 +19,10 @@ public class Word {
 		this.m = this.calculateMValue();
 	}
 	
+	public String getRawString() {
+		return raw;
+	}
+	
 	public String breakupWord() {
 		// the [C] @ start of word
 		String startC = "";
