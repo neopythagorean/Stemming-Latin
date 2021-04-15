@@ -12,7 +12,7 @@ public class NotExpression extends Expression {
 		super(source);
 		String s = source.substring(3, source.length()-1);
 		try {
-			enclosed = Expression.getConstructor(Expression.getExpressionTyoe(s)).newInstance(s);
+			enclosed = Expression.getConstructor(Expression.getExpressionType(s)).newInstance(s);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
 			e.printStackTrace();

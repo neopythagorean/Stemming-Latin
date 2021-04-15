@@ -44,7 +44,7 @@ public class Rule {
 			String condition = context.substring(0, i);
 			System.out.println(condition);
 			
-			Constructor<? extends Expression> constr = Expression.getConstructor(Expression.getExpressionTyoe(condition));
+			Constructor<? extends Expression> constr = Expression.getConstructor(Expression.getExpressionType(condition));
 			try {
 				this.condition = (Expression) constr.newInstance(condition);
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException

@@ -12,7 +12,7 @@ public abstract class Expression {
 		this.source = source;
 	}
 	
-	public static Class<? extends Expression> getExpressionTyoe(String source) {
+	public static Class<? extends Expression> getExpressionType(String source) {
 		String s = source.substring(1, source.length()-1);
 		String[] split = s.split(" ");
 		if (s.charAt(0) == '&') {
