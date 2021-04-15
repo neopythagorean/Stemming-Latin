@@ -38,7 +38,7 @@ public class Rule {
 				i++;
 				if (stk == 0) break;
 			}
-			this.end = context.substring(i).strip();
+			this.end = context.substring(i).trim();
 			
 			// Generate the Condition
 			String condition = context.substring(0, i);
@@ -72,6 +72,26 @@ public class Rule {
 			this.transition = currentBin.defaultTransition;
 		}
 		this.addition = prodSplit[0];
+	}
+	
+	public boolean ruleCheckApplies(Word wordToCheck) {
+		
+		return condition.evaluate(wordToCheck) && wordToCheck.endsIn(this.end); 
+		
+	}
+	
+	public Word ruleApply(Word wordToApply) {
+		String raw = wordToApply.getRawString();
+		int lenghtOfEnd = this.end.length()-1;
+		raw = raw.substring(0, lenghtOfEnd);
+		raw += this.production;
+		
+//		raw.replace(this.end, this.production);
+//		Word strippedWord = new Word(raw);
+		
+//		return strippedWord;
+		return null;
+		
 	}
 	
 	public String toString() {
