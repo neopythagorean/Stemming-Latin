@@ -23,7 +23,6 @@ public class Rule {
 	
 	public Rule(String raw, HashMap<String, RuleBin> bins, RuleBin currentBin) {
 		this.rawRule = raw;
-		System.out.println(raw);
 		String[] split = raw.split(" -> ");
 		
 		this.context = split[0];
@@ -42,7 +41,6 @@ public class Rule {
 			
 			// Generate the Condition
 			String condition = context.substring(0, i);
-			System.out.println(condition);
 			
 			Constructor<? extends Expression> constr = Expression.getConstructor(Expression.getExpressionType(condition));
 			try {
@@ -64,13 +62,13 @@ public class Rule {
 			this.transition = currentBin.defaultTransition;
 		}
 		this.addition = prodSplit[0];
+		if (this.addition.equals("λ")) this.addition = "";
 	}
 	
 	public boolean ruleCheckApplies(Word wordToCheck) {
 		String s = wordToCheck.getRawString();
-		Word wordPrime = new Word(s.substring(0, s.length() - end.length()));
 		return wordToCheck.endsIn(this.end) && 
-				(condition == null || condition.evaluate(wordToCheck, wordPrime)); 
+				(condition == null || condition.evaluate(wordToCheck, new Word(s.substring(0, s.length() - end.length())))); 
 		
 	}
 	
@@ -78,7 +76,7 @@ public class Rule {
 		String raw = wordToApply.getRawString();
 		int lenghtOfEnd = this.end.length();
 		raw = raw.substring(0, raw.length()-lenghtOfEnd);
-		raw += this.production.toLowerCase();
+		raw += this.addition.toLowerCase();
 		return new Word(raw);
 		
 	}

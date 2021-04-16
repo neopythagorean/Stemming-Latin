@@ -34,7 +34,6 @@ public class OrExpression extends Expression {
 			
 			if (stk == 0 && onSpace) {
 				String sub = s.substring(start, i);
-				System.out.println(sub);
 				try {
 					enclosed.add(Expression.getConstructor(Expression.getExpressionType(sub)).newInstance(sub));
 				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
