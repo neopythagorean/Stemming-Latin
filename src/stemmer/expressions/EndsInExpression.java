@@ -14,5 +14,4 @@ public class EndsInExpression extends Expression {
 	public boolean evaluate(Word w, Word wp) {
 		return wp.endsIn(ending);
 	}
-	
 }

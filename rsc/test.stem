@@ -1,9 +1,0 @@
-# Test Stemming File
-
-
-SOME_BIN {
-LO -> WORLD
-HELLO -> GOODBYE
-}
-
-

@@ -1,0 +1,66 @@
+
+
+# -bilis (english -able)
+VERB_ADJECTIVAL (COMMON_VERB_ENDINGS) {
+(& (m>0) (| (*A) (*I))) BILIS -> B (VERB_ADJECTIVAL_FINAL)
+(& (m>0) (| (*A) (*I))) BILEM -> B (VERB_ADJECTIVAL_FINAL)
+(& (m>0) (| (*A) (*I))) BILI -> B (VERB_ADJECTIVAL_FINAL)
+}
+
+# Leads to the stem outside of irregualr cases
+VERB_ADJECTIVAL_FINAL {
+AB -> λ
+IB -> λ
+}
+
+
+COMMON_VERB_ENDINGS (NOUN_1ST_DEC) {
+O -> O 
+#(*v) S   -> λ
+(*v) T   -> λ (VERB_VOWEL)
+(*v) MUS -> λ (VERB_VOWEL)
+(*v) TIS -> λ (VERB_VOWEL)
+(*v) NT  -> λ (VERB_VOWEL)
+}
+
+VERB_VOWEL {
+A -> λ (A_VERB)
+E -> λ (E_VERB)
+I -> λ (I_VERB)
+}
+
+A_VERB {
+AB -> λ
+AVER -> λ
+}
+
+I_VERB {
+AB -> λ
+AVER -> λ
+}
+
+E_VERB {
+
+}
+
+
+# First Conjugation verbs
+VERB_1ST_CONJ {
+O -> λ
+AS -> λ
+AT -> λ
+AMUS -> λ
+ATIS -> λ
+ANT -> λ
+}
+
+VERB_2ND_CONJ {
+EO -> λ
+ES -> λ
+ET -> λ
+EMUS -> λ
+ETIS -> λ
+ENT -> λ
+}
+
+

@@ -1,0 +1,57 @@
+# First Declension nouns
+NOUN_1ST_DEC {
+A -> λ		#s.NOM,s.ABL
+AE -> λ	#s.GEN,s.DAT
+AM -> λ	#s.ACC
+ARUM -> λ	#p.GEN
+IS -> λ	#p.DAT,p.ABL
+AS -> λ	#p.ACC
+}
+
+
+# Second Declension
+NOUN_2ND_DEC {
+US -> λ
+I -> λ
+O -> λ
+UM -> λ
+ORUM -> λ
+IS -> λ
+OS -> λ
+}
+
+
+# Third Declension
+NOUN_3RD_DEC {
+IS -> λ
+I -> λ
+EM -> λ
+E -> λ
+ES -> λ
+UM -> λ
+IBUS -> λ
+A -> λ		#Neuter Only.
+IS -> λ
+IUM -> λ
+IA -> λ
+}
+
+# Fourth Declension
+NOUN_4TH_DEC {
+US -> λ
+UI -> λ
+UM -> λ
+IBUS -> λ
+UUM -> λ
+U -> λ
+UA -> λ
+}
+
+NOUN_5TH_DEC {
+ES -> E
+EI -> E
+EM -> E
+E -> E		#Redundant.
+ERUM -> E
+EBUS -> E
+}

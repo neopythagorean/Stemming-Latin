@@ -9,13 +9,13 @@ public class LatinStemmer {
 		ArrayList<Word> stemmed = new ArrayList<Word>();
 		HashMap<String, RuleBin> ruleBins = RuleGenerator.generateRulesList(args[1]);
 		
-		for (Word w : words) {
-			System.out.println(w.getRawString());
-			System.out.println(stemWord(w, ruleBins).getRawString());
-		}
+//		for (Word w : words) {
+//			System.out.println(w.getRawString());
+//			System.out.println(stemWord(w, ruleBins).getRawString());
+//		}
 		
-//		Word u = new Word("amicabilisque");
-//		System.out.println(stemWord(u, ruleBins).getRawString());
+		Word u = new Word("amabant");
+		System.out.println(stemWord(u, ruleBins).getRawString());
 		
 	}
 	

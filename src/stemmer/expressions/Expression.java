@@ -25,6 +25,8 @@ public abstract class Expression {
 			return MCountExpression.class;
 		} else if (split[0].equals("*d*")) {
 			return DoubleConsonantExpression.class;
+		} else if (split[0].equals("*v")) {
+			return EndsInVowelExpression.class;
 		} else if (split[0].matches("\\*[A-Z]+")) {
 			return EndsInExpression.class;
 		}
