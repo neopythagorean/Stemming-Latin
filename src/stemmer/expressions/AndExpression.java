@@ -46,9 +46,9 @@ public class AndExpression extends Expression {
 		}
 	}
 	
-	public boolean evaluate(Word w) {
+	public boolean evaluate(Word w, Word wp) {
 		for (Expression e : enclosed)
-			if (!e.evaluate(w)) return false;
+			if (!e.evaluate(w, wp)) return false;
 		return true;
 	}
 	

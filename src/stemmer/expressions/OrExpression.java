@@ -46,9 +46,9 @@ public class OrExpression extends Expression {
 		}
 	}
 
-	public boolean evaluate(Word w) {
+	public boolean evaluate(Word w, Word wp) {
 		for (Expression e : enclosed)
-			if (e.evaluate(w))
+			if (e.evaluate(w, wp))
 				return true;
 		return false;
 	}

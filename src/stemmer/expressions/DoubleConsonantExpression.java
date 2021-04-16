@@ -8,7 +8,7 @@ public class DoubleConsonantExpression extends Expression {
 		super(Source);
 	}
 	
-	public boolean evaluate(Word w) {
+	public boolean evaluate(Word w, Word wp) {
 		return w.doubleConsonantEnding();
 	}
 	

@@ -11,8 +11,8 @@ public class EndsInExpression extends Expression {
 		this.ending = source.substring(2, source.length()-1);
 	}
 
-	public boolean evaluate(Word w) {
-		return w.endsIn(ending);
+	public boolean evaluate(Word w, Word wp) {
+		return wp.endsIn(ending);
 	}
 	
 }

@@ -20,8 +20,8 @@ public class NotExpression extends Expression {
 		
 	}
 	
-	public boolean evaluate(Word w) {
-		return !(enclosed.evaluate(w));
+	public boolean evaluate(Word w, Word wp) {
+		return !(enclosed.evaluate(w, wp));
 	}
 
 }

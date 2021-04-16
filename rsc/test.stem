@@ -2,7 +2,8 @@
 
 
 SOME_BIN {
-(*d*) HELLO -> WORLD
+LO -> WORLD
+HELLO -> GOODBYE
 }
 
 

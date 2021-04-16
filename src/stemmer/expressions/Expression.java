@@ -42,5 +42,5 @@ public abstract class Expression {
 		return constr;
 	}
 	
-	public abstract boolean evaluate(Word w);
+	public abstract boolean evaluate(Word w, Word wp);
 }

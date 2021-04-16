@@ -27,9 +27,9 @@ public class MCountExpression extends Expression {
 			c = MCountExpression::gteq;
 			cutoff++;
 		} else if(s.startsWith("<")) {
-			c = MCountExpression::lteq;
+			c = MCountExpression::lt;
 		} else if(s.startsWith(">")) {
-			c = MCountExpression::eq;
+			c = MCountExpression::gt;
 		} else {
 			System.out.println("Unkown equality in " + source);
 		}
@@ -38,7 +38,7 @@ public class MCountExpression extends Expression {
 	}
 	
 	
-	public boolean evaluate(Word w) {
+	public boolean evaluate(Word w, Word wp) {
 		return c.compare(w.getM(), constant);
 	}
 

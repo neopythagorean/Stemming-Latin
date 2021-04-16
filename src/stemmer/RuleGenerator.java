@@ -105,22 +105,15 @@ public class RuleGenerator {
 		}
 	}
 
-	public static ArrayList<Rule> generateRulesList(String sourceDir) {
+	public static HashMap<String, RuleBin> generateRulesList(String sourceDir) {
 		ArrayList<String> source = generateCleanedSource(sourceDir);
 		ArrayList<Rule> rules = new ArrayList<Rule>();
 
 		HashMap<String, RuleBin> bins = gernerateRuleBin(source);
 		
-		
 		generateRules(source, bins);
-		for (RuleBin b : bins.values()) {
-			System.out.println(b + "\n" + b.rules.size());
-			for (Rule r : b.rules) {
-				System.out.println(r);
-			}
-		}
 		
-		return rules;
+		return bins;
 	}
 
 }

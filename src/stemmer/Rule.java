@@ -67,22 +67,19 @@ public class Rule {
 	}
 	
 	public boolean ruleCheckApplies(Word wordToCheck) {
-		
-		return condition.evaluate(wordToCheck) && wordToCheck.endsIn(this.end); 
+		String s = wordToCheck.getRawString();
+		Word wordPrime = new Word(s.substring(0, s.length() - end.length()));
+		return wordToCheck.endsIn(this.end) && 
+				(condition == null || condition.evaluate(wordToCheck, wordPrime)); 
 		
 	}
 	
 	public Word ruleApply(Word wordToApply) {
 		String raw = wordToApply.getRawString();
-		int lenghtOfEnd = this.end.length()-1;
-		raw = raw.substring(0, lenghtOfEnd);
-		raw += this.production;
-		
-//		raw.replace(this.end, this.production);
-//		Word strippedWord = new Word(raw);
-		
-//		return strippedWord;
-		return null;
+		int lenghtOfEnd = this.end.length();
+		raw = raw.substring(0, raw.length()-lenghtOfEnd);
+		raw += this.production.toLowerCase();
+		return new Word(raw);
 		
 	}
 	
