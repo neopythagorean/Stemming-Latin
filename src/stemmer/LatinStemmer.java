@@ -14,8 +14,9 @@ public class LatinStemmer {
 			System.out.println(stemWord(w, ruleBins).getRawString());
 		}
 		
-		//Word u = new Word("aaaaaaaa");
-		//System.out.println(stemWord(u, ruleBins).getRawString());
+		Word u = new Word("amet");
+		System.out.println(u.getM());
+		System.out.println(stemWord(u, ruleBins).getRawString());
 		
 	}
 	

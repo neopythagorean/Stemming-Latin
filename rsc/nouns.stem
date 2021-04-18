@@ -1,53 +1,53 @@
 # First Declension nouns
-NOUN_1ST_DEC {
-A -> λ		#s.NOM,s.ABL
-AE -> λ	#s.GEN,s.DAT
-AM -> λ	#s.ACC
-ARUM -> λ	#p.GEN
-IS -> λ	#p.DAT,p.ABL
-AS -> λ	#p.ACC
+NOUN_1ST_DEC (NOUN_2ND_DEC) {
+A -> λ (FINIS)		#s.NOM,s.ABL
+AE -> λ (FINIS)	#s.GEN,s.DAT
+AM -> λ (FINIS)	#s.ACC
+ARUM -> λ (FINIS)	#p.GEN
+IS -> λ (FINIS)	#p.DAT,p.ABL
+AS -> λ (FINIS)	#p.ACC
 }
 
 
 # Second Declension
-NOUN_2ND_DEC {
-US -> λ
-I -> λ
-O -> λ
-UM -> λ
-ORUM -> λ
-IS -> λ
-OS -> λ
+NOUN_2ND_DEC (NOUN_3RD_DEC) {
+US -> λ (FINIS)
+I -> λ (FINIS)
+O -> λ (FINIS)
+UM -> λ (FINIS)
+ORUM -> λ (FINIS)
+IS -> λ (FINIS)
+OS -> λ (FINIS)
 }
 
 
 # Third Declension
-NOUN_3RD_DEC {
-IS -> λ
-I -> λ
-EM -> λ
-E -> λ
-ES -> λ
-UM -> λ
-IBUS -> λ
-A -> λ		#Neuter Only.
-IS -> λ
-IUM -> λ
-IA -> λ
+NOUN_3RD_DEC (NOUN_4TH_DEC) {
+IS -> λ (FINIS)
+I -> λ (FINIS)
+EM -> λ (FINIS)
+E -> λ (FINIS)
+ES -> λ (FINIS)
+UM -> λ (FINIS)
+IBUS -> λ (FINIS)
+A -> λ (FINIS)		#Neuter Only.
+IS -> λ (FINIS)
+IUM -> λ (FINIS)
+IA -> λ (FINIS)
 }
 
 # Fourth Declension
-NOUN_4TH_DEC {
-US -> λ
-UI -> λ
-UM -> λ
-IBUS -> λ
-UUM -> λ
-U -> λ
-UA -> λ
+NOUN_4TH_DEC (NOUN_5TH_DEC) {
+US -> λ (FINIS)
+UI -> λ (FINIS)
+UM -> λ (FINIS)
+IBUS -> λ (FINIS)
+UUM -> λ (FINIS)
+U -> λ (FINIS)
+UA -> λ (FINIS)
 }
 
-NOUN_5TH_DEC {
+NOUN_5TH_DEC (FINIS) {
 ES -> E
 EI -> E
 EM -> E

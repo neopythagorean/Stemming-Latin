@@ -23,6 +23,8 @@ public abstract class Expression {
 			return NotExpression.class;
 		} else if (s.charAt(0) == 'm') {
 			return MCountExpression.class;
+		}  else if (s.charAt(0) == '^') {
+			return IsLiterallyExpression.class;
 		} else if (split[0].equals("*d*")) {
 			return DoubleConsonantExpression.class;
 		} else if (split[0].equals("*v")) {

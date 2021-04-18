@@ -15,12 +15,24 @@ IB -> λ
 
 
 COMMON_VERB_ENDINGS (NOUN_1ST_DEC) {
-O -> O 
+
+O -> O
+EO -> λ 
+
+#Infinitives, should lead directly to stem.
+ERE -> λ (FINIS)
+ARE -> λ (FINIS)
+IRE -> λ (FINIS)
+
 #(*v) S   -> λ
-(*v) T   -> λ (VERB_VOWEL)
-(*v) MUS -> λ (VERB_VOWEL)
-(*v) TIS -> λ (VERB_VOWEL)
-(*v) NT  -> λ (VERB_VOWEL)
+(| (*A) (*E) (*I)) T   -> λ (VERB_VOWEL)
+(| (*A) (*E) (*I)) MUS -> λ (VERB_VOWEL)
+(| (*A) (*E) (*I)) TIS -> λ (VERB_VOWEL)
+(| (*A) (*E) (*I)) NT  -> λ (VERB_VOWEL)
+
+
+# Future
+(| (*A) (*E) (*I)) UNT -> λ (U_VERB) 
 }
 
 VERB_VOWEL {
@@ -30,17 +42,27 @@ I -> λ (I_VERB)
 }
 
 A_VERB {
+
 AB -> λ
 AVER -> λ
+
+# 2nd Conj Imp.
+EB -> λ
 }
 
 I_VERB {
 AB -> λ
 AVER -> λ
+AV -> λ
 }
 
 E_VERB {
 
+}
+
+U_VERB {
+AB -> λ
+AVER -> λ
 }
 
 

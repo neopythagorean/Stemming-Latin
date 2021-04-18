@@ -2,7 +2,18 @@
 # This is a comment
 
 # Entry point.
-START (HL_PREFIXES) {
+START (IGNORE_LIST) {
+}
+
+# Words that will trip up the ruleset that should just be ignored.
+# Either because they are edge cases - or just imply already in their most stemmed form.
+IGNORE_LIST (HL_PREFIXES) {
+(^) ET -> ET (FINIS)
+(^) AT -> AT (FINIS)
+(^) UT -> UT (FINIS)
+(^) QUOQUE -> QUOQUE (FINIS)
+(^) ATQUE -> ATQUE (FINIS)
+(^) QUI -> QUI (FINIS)
 }
 
 # HIGH LEVEL PREFIXES
