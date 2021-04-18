@@ -1,12 +1,16 @@
 # Example Stemming File
 # This is a comment
 
+# Entry point.
+START (HL_PREFIXES) {
+}
 
 # HIGH LEVEL PREFIXES
 # These are prefixes will always be at the end of a word
 # and can be used on any type of word
 HL_PREFIXES (VERB_ADJECTIVAL) {
 (m>1) QUE -> λ
+(m>1) CUMQUE -> λ
 }
 
 # deliberately empty rule bin to force end.
