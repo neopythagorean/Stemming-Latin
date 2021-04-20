@@ -2,22 +2,26 @@ package stemmer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class LatinStemmer {
 	public static void main(String[] args) {
-		ArrayList<Word> words = FileHandler.generateWordList(args[0]);
-		ArrayList<Word> stemmed = new ArrayList<Word>();
-		HashMap<String, RuleBin> ruleBins = RuleGenerator.generateRulesList(args[1]);
+		HashMap<String, RuleBin> ruleBins = RuleGenerator.generateRulesList(args[0]);
 		
-		for (Word w : words) {
-			System.out.println(w.getRawString());
-			System.out.println(stemWord(w, ruleBins).getRawString());
+		if (args.length > 1) {
+			ArrayList<Word> words = FileHandler.generateWordList(args[1]);
+			ArrayList<Word> stemmed = new ArrayList<Word>();
+			for (Word w : words) {
+				stemmed.add(stemWord(w, ruleBins));
+			}
+			FileHandler.stemmedWordFileWriter(stemmed);
+			return;
 		}
 		
-		Word u = new Word("amet");
-		System.out.println(u.getM());
-		System.out.println(stemWord(u, ruleBins).getRawString());
-		
+		Scanner in = new Scanner(System.in);
+		String s = "";
+		for (;;s = in.nextLine())
+			System.out.println(stemWord(new Word(s), ruleBins).getRawString());
 	}
 	
 	public static Word stemWord(Word w, HashMap<String, RuleBin> ruleBins) {
